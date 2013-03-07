@@ -1,0 +1,219 @@
+/*
+ CSS file for Web App
+ Greg Koenig
+ Visual Frameworks 1302
+*/
+
+h1{
+    font-family: Arial;
+    font-size: 40px;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+   
+}
+
+p{
+    font-family: Arial;
+    font-size: 10px;
+	line-height: 15px;
+	text-align: center;
+    
+}
+
+li{
+    margin: 0px 0px 0px 10px;
+    font-family: arial;
+	font-size: 12px;
+	line-height: 15px;
+    padding: 0px 0px 0px 5px;
+    list-style-type: none;
+    
+}
+
+label{
+   /* display: block; */
+}
+
+body { 
+    background-image:url("../img/oldboard_back.jpg");
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+}
+
+form{
+    background-color: rgb(241,231,210);
+    margin: 5px;
+    padding: 10px;
+    border-radius:15px;
+}
+
+fieldset{
+    margin: 5px;
+    padding: 10px;
+    border-radius:0px;
+	/*width: 250px;*/
+}
+
+legend{
+    font-family: arial;
+    font-weight: bold; 
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+a{
+    font-family: Arial;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    
+}
+
+#submitbutton{
+    float: none;
+    display: block;
+    width: 200px;
+    margin: 20px auto 5px;
+}
+
+#notes{
+    display: block;
+    width: 200px;
+    height: 100px;
+    
+}
+
+#NewBoards{
+    background-color: rgb(241,231,210);
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius:15px;
+    /*width: 100%;*/
+    
+}
+
+
+div ul li ul{
+    background-color: white;
+    margin: 5px;
+    padding: 5px ;
+    border-radius:15px;
+    
+}
+
+ul #errors{
+    height: 20px;
+	padding: 0px
+}
+
+#errors li{
+    font-family: Arial;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+}
+
+
+.newBoard{
+	background-color: white;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
+    border-radius:15px;
+    width: 100%;
+    display: inline-block;
+    
+}
+
+
+.boardPicture{
+	width: 50%;
+    display: block;
+    float: left;
+    alignment-adjust: auto;
+}
+
+.deckpic{
+    align: center;
+    display: block;
+}
+
+.boardSpecs{
+	width: 50%;
+    display: inline-block;
+    alignment-adjust: auto;
+    
+}
+
+ul, menu, dir {
+    display: block;
+    padding: 5px;
+}
+
+.boardSpecs ul li{
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: left;
+    
+}
+
+.editlinks{
+    font-family: Arial;
+    font-size: 11px;
+    line-height: 15px;
+    text-align: left;
+    color: red;
+    
+}
+
+#clearButton{
+    float: none;
+    
+    margin: 0px auto ;
+}
+
+#displayBoards{
+    float: none;
+    
+    margin: 0px auto ;
+   
+}
+
+#addNew{
+    float: none;
+    
+    margin: 0px auto ;
+}
+
+#indexMain{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    
+}
+
+#indexSearch{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    
+}
+
+#indexCategories{
+    background-color: white;
+    border-radius:5px;
+    padding: 5px;
+    border: 1px;
+	height: auto;
+    text-align: center;
+    
+}
+
+#bottomButtons{
+	width: 100%;
+	text-align: center;
+	
+}
