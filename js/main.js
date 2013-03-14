@@ -175,6 +175,7 @@ window.addEventListener("DOMContentLoaded", function() {
     
     //put data to the browser
     var getData = function(){
+        
         toggleControls("on");
         if(localStorage.length ===0){
             alert("Ya gotta add a board first - default data added!");
@@ -182,10 +183,13 @@ window.addEventListener("DOMContentLoaded", function() {
         }
         var makeDiv = document.createElement("div");
         makeDiv.setAttribute("id", "NewBoards");
+        
+        
         /*var makeList = document.createElement("ul");
         makeDiv.appendChild(makeList);*/
         document.body.appendChild(makeDiv);
-        GetID("NewBoards").style.display = "block";
+        /*GetID("NewBoards").style.display = "block";*/
+        GetID("NewBoards").innerHTML = "";
         for (var i=0, j=localStorage.length; i<j; i++) {
             /*var makeLi = document.createElement("li");*/
             var editLinks = document.createElement("li");
@@ -249,6 +253,7 @@ window.addEventListener("DOMContentLoaded", function() {
     };
     
     var editBoard = function(){
+        GetID("NewBoards").innerHTML = "";
         var value = localStorage.getItem(this.key);
         var object = JSON.parse(value);
         
