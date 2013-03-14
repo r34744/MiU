@@ -1,7 +1,7 @@
 /*
  CSS file for Web App
  Greg Koenig
- 
+ Visual Frameworks 1302
 */
 
 h1{
@@ -146,6 +146,15 @@ ul #errors{
     alignment-adjust: auto;
     
 }
+
+.boardSpecs2{
+	width: 50%;
+    display: inline;
+    
+    
+}
+
+
 
 ul, menu, dir {
     display: block;

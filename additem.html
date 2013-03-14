@@ -13,6 +13,13 @@
 	
 	<body>
 		<p><img src="img/addaboard.png"/> </a></p>
+		<div id="bottomButtons">
+			<input type="button" value="Clear Boards" id="clearButton"/>   
+			<input type="button" value="Display Boards" id="displayBoards"/>   
+			<input type="button" style="display:none;" value="Add New Board" id="addNew"/> 
+			<li></li><input type="text" id="search" style="display:none;">
+			<input type="button" value="Search" id="searchButton" style="display:none;"/></li>
+		</div>
 		<p>Bought a new board? Let's add it to your collection.</p>
 		
         <form action="" method="post" id="addaBoard">
@@ -65,11 +72,7 @@
         
 		<input type="button" value="Add a Board" id="submitbutton"/>   
         </form>
-		<div id=bottomButtons>
-			<input type="button" value="Clear Boards" id="clearButton"/>   
-			<input type="button" value="Display Boards" id="displayBoards"/>   
-			<input type="button" style="display:none;" value="Add New Board" id="addNew"/> 
-		</div>
+		
 		<script src="js/json.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
 		

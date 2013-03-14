@@ -121,7 +121,8 @@ window.addEventListener("DOMContentLoaded", function() {
                 GetID("clearButton").style.display = "inline";
                 GetID("displayBoards").style.display = "none";
                 GetID("addNew").style.display = "inline";
-                
+                GetID("searchButton").style.display = "inline";
+                GetID("search").style.display = "inline";
                 break;
             case "off":
                 GetID("addaBoard").style.display = "block";
@@ -129,6 +130,8 @@ window.addEventListener("DOMContentLoaded", function() {
                 GetID("displayBoards").style.display = "inline";
                 GetID("addNew").style.display = "none";
                 GetID("NewBoards").style.display = "none";
+                GetID("searchButton").style.display = "none";
+                GetID("search").style.display = "none";
                 break;
             default:
                 return false;
@@ -378,63 +381,62 @@ window.addEventListener("DOMContentLoaded", function() {
     var addBoard = GetID("addNew");
     addBoard.addEventListener("click", openAddWindow);
     
-    /*
-    //show categories browser
-    var showCategory = function(){
-        var pushedCat = Vintage;
-        toggleControls("on");
-        if(localStorage.length ===0){
-            alert("No boards saved - default data added!");
-            defaultFillData();
-        }
-        var makeDiv = document.createElement("div");
-        makeDiv.setAttribute("id", "NewBoards");
-        document.body.appendChild(makeDiv);
-        GetID("NewBoards").style.display = "block";
-        for (var i=0, j=localStorage.length; i<j; i++) {
+    //Search
+    var searchButton = GetID("searchButton");
+    searchButton.addEventListener("click", boardSearch);
+    
+    
+    function boardSearch (){
+        var boardCategories = GetID("Category").value;
+        var brandName = GetID("search").value;
+        
+        
+        //Search by Term
+        if(brandName !=""){
+            var makeDiv = document.createElement("div");
+            var newBoard = document.createElement('div');
+            var bottomButtonDiv = GetID("bottomButtons")
+            bottomButtonDiv.appendChild(makeDiv);
+            makeDiv.setAttribute("id", "results");
             var editLinks = document.createElement("li");
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
-            
-            //connecting string in localstorage to an object
             var object = JSON.parse(value);
             
             var newBoard = document.createElement('div');
             makeDiv.appendChild(newBoard);
             newBoard.setAttribute("class", "newBoard");
             
-            if (object[i].category[1] == pushedCat) {
-                getCategoryImage(object[i].category[1], newBoard);
-                var boardSpecs = document.createElement('div');
-                newBoard.appendChild(boardSpecs);
-                boardSpecs.setAttribute("class", "boardSpecs");
-                var makeSubList = document.createElement("ul");
-                boardSpecs.appendChild(makeSubList);
+                            
+                            
             
-                var makeSubLi = document.createElement("li");
-                makeSubList.appendChild(makeSubLi);
-                var optSubText = object[i][0] + " " + object[i][1];
-                makeSubLi.innerHTML = optSubText;
-                makeSubList.appendChild(editLinks);
-            };
-                makeEditLinks(localStorage.key(i), editLinks); //creates the edit links for each item
-        };
+            for (i=0, j=localStorage.length; i<j; i++){
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+                var obj = JSON.parse(value);
+                for (n in obj){
+                    if(brandName === obj[n][1]){
+                        var boardSpecs = document.createElement('div');
+                        newBoard.appendChild(boardSpecs);
+                        boardSpecs.setAttribute("class", "boardSpecs2");
+                        var makeSubList = document.createElement("ul");
+                
+                        for (q in obj){
+                            //getCategoryImage(object.category[1], newBoard);
+                            boardSpecs.appendChild(makeSubList);
+                            var makeSubLi = document.createElement("li");
+                            makeSubList.appendChild(makeSubLi);
+                            var optSubText = obj[q][0] + " " + obj[q][1];
+                            makeSubLi.innerHTML = optSubText;
+                            
+                        }
+                    }
+                }
+             
+            }
+        }
         
         
-    };
-    
-
-    //index page buttons
-    var vintageButton = GetID("vintageButton");
-    vintageButton.addEventListener("click", openBlankWindow);
-    var noveltyButton = GetID("noveltyButton");
-    noveltyButton.addEventListener("click", openBlankWindow);
-    var artButton = GetID("artButton");
-    artButton.addEventListener("click", openBlankWindow);
-    var riderButton = GetID("riderButton");
-    riderButton.addEventListener("click", openBlankWindow);
-    var brokenButton = GetID("brokenButton");
-    brokenButton.addEventListener("click", openBlankWindow);
-   */
+    }
 
 } );
