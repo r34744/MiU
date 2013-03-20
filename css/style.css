@@ -109,9 +109,21 @@ ul #errors{
 	padding: 0px
 }
 
+#errorslink{
+	display:none;
+}
+
 #errors li{
     font-family: Arial;
     font-size: 12px;
+    font-style: italic;
+    color: red;
+}
+
+label.error{
+    display:block;
+	font-size: 12px;
+	margin: 5px;
     font-style: italic;
     color: red;
 }
@@ -226,3 +238,4 @@ ul, menu, dir {
 	text-align: center;
 	
 }
+
