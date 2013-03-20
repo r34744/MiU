@@ -1,16 +1,19 @@
 /*
  Greg Koenig
- Visual Frameworks 1302
+ Mobile Interface 1303
 */
 
-var parseForm = function(data){
+$('#home').on('pageinit', function(){
+	//code needed for home page goes here
+});	
+		
+$('#form').on('pageinit', function(){
+
+    var parseForm = function(data){
     console.log(data);
-};
+    };
 
-
-$(document).ready(function(){
-    
-    var boardform = $('#boardform'),
+	var boardform = $('#boardform'),
         errorlink = $('#errorlink')
     ;
     boardform.validate({
@@ -30,5 +33,31 @@ $(document).ready(function(){
             parseForm(data);
         }
     });
-
+	
+	//any other code needed for addItem page goes here
+	
 });
+
+//The functions below can go inside or outside the pageinit function for the page in which it is needed.
+
+var autofillData = function (){
+	 
+};
+
+var getData = function(){
+
+};
+
+var storeData = function(data){
+	
+}; 
+
+var	deleteItem = function (){
+			
+};
+					
+var clearLocal = function(){
+
+};
+
+
