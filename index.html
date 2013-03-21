@@ -80,6 +80,7 @@
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#page1" class="ui-btn-active">Home</a></li>
+						<li><a href="#form" >Add</a></li>
 						<li><a href="#stream">Stream</a></li>
 						<li><a href="#page3">About</a></li>
 					</ul>
@@ -113,6 +114,7 @@
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#page1" >Home</a></li>
+						<li><a href="#form" >Add</a></li>
 						<li><a href="#stream" >Stream</a></li>
 						<li><a href="#page3">About</a></li>
 					</ul>
@@ -150,6 +152,7 @@
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#page1" >Home</a></li>
+						<li><a href="#form" >Add</a></li>
 						<li><a href="#stream" >Stream</a></li>
 						<li><a href="#page3" class="ui-btn-active">About</a></li>
 					</ul>
@@ -190,6 +193,7 @@
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#page1" >Home</a></li>
+						<li><a href="#form" >Add</a></li>
 						<li><a href="#stream" class="ui-btn-active">Stream</a></li>
 						<li><a href="#page3" >About</a></li>
 					</ul>
@@ -208,20 +212,20 @@
 			</div>
 			<div data-role="content">	
 				
-				<form action="" method="post" id="boardform">
+				<form action="" method="post" id="addaboard">
 					<div data-role="fieldcontain">
-						<label for="boardName">Board Name:</label>
-						<input type="text" name="boardName" id="boardName" placeholder="Please input a board name" data-clear-btn="true" class="required"/>
+						<label for="brand">Board Name:</label>
+						<input type="text" name="brand" id="brand" placeholder="Please input a board name" data-clear-btn="true" class="required"/>
 					</div>
 					
 					<div data-role="fieldcontain">
-						<label for="manudate">Manufacturer's Date:</label>
-						<input type="date" name="manudate" id="manudate" placeholder="Date the board was made" data-clear-btn="true" />
+						<label for="date">Manufacturer's Date:</label>
+						<input type="date" name="date" id="date" placeholder="Date the board was made" data-clear-btn="true" />
 					</div>
 					
 					<div data-role="fieldcontain">
-						<label for="category">Category:</label>
-						<select name="category" id="category" class="required"/>
+						<label for="Category" class="required">Category:</label>
+						<select name="Category" id="Category" />
 							<option data-placeholder="true">Select a board type </option>
 							<option value="Vintage">Vintage</option>
 							<option value="Novelty">Novelty</option>
@@ -238,8 +242,8 @@
 					
 					
 					<div data-role="fieldcontain">
-						<label for="trucks">Truck Brand:</label>
-						<input type="text" name="trucks" id="trucks" placeholder="Got trucks?" data-clear-btn="true" />
+						<label for="truckBrand">Truck Brand:</label>
+						<input type="text" name="truckBrand" id="truckBrand" placeholder="Got trucks?" data-clear-btn="true" />
 					</div>
 					
 					<div data-role="fieldcontain">
@@ -265,22 +269,22 @@
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup">
 							<legend>Accessories:</legend>
-							<input type="checkbox" value="Rails" name="Accessories" id="Rails"/>
+							<input type="checkbox" value="Rails" name="accessories" id="Rails"/>
 							<label for="Rails">Rails</label>
 							
-							<input type="checkbox" value="Lappers" name="Accessories" id="Lappers"/>
+							<input type="checkbox" value="Lappers" name="accessories" id="Lappers"/>
 							<label for="Lappers">Lappers</label>
 							
-							<input type="checkbox" value="TailGuard" name="Accessories" id="TailGuard"/>
+							<input type="checkbox" value="TailGuard" name="accessories" id="TailGuard"/>
 							<label for="TailGuard">Tail Guard</label>
 							
-							<input type="checkbox" value="Risers" name="Accessories" id="Risers"/>
+							<input type="checkbox" value="Risers" name="accessories" id="Risers"/>
 							<label for="Risers">Risers</label>
 							
-							<input type="checkbox" value="Other" name="Accessories" id="Other"/>
+							<input type="checkbox" value="Other" name="accessories" id="Other"/>
 							<label for="Other">Other</label>
 							
-							<input type="checkbox" value="None" name="Accessories" id="None"/>
+							<input type="checkbox" value="None" name="accessories" id="None"/>
 							<label for="None">None</label>
 						</fieldset>
 					</div>
@@ -291,10 +295,10 @@
 					</div>
 					
 					<div data-role="fieldcontain">
-						<input type="submit" value="Submit" data-theme="b"/>
+						<input type="submit" value="Submit" id="submitbutton" data-theme="b"/>
 					</div>
 					<div data-role="fieldcontain">
-						<input type="reset" value="Reset" data-mini="true" data-theme="a"/>
+						<input type="reset" value="Reset" id="resetbutton" data-mini="true" data-theme="a"/>
 					</div>	
 				
 					<a href="#errors" id="errorlink" data-rel="dialog">Errors</a>
@@ -307,7 +311,8 @@
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#page1" >Home</a></li>
-						<li><a href="#stream" class="ui-btn-active">Stream</a></li>
+						<li><a href="#form" class="ui-btn-active">Add</a></li>
+						<li><a href="#stream" >Stream</a></li>
 						<li><a href="#page3" >About</a></li>
 					</ul>
 				</div>   
@@ -340,8 +345,9 @@
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
 		<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+		<script src="js/json.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/main.js"></script> 
-    
+		
 	
 	</body>
 		

@@ -63,13 +63,8 @@ a{
     
 }
 
-#submitbutton{
-    float: none;
-    display: block;
-    width: 200px;
-    margin: 20px auto 5px;
-}
 
+ 
 #notes{
     display: block;
     width: 200px;
