@@ -8,17 +8,20 @@ $('#home').on('pageinit', function(){
 });	
 		
 $('#form').on('pageinit', function(){
-
+   
+    
     var parseForm = function(data){
     console.log(data);
     };
 
-	var addaboard = $('#addaboard'),
-        errorlink = $('#errorlink')
-    ;
+	var addaboard = $('#addaboard');
+    var errorlink = $('#errorlink');
+    var savedlink = $('#savedlink');
+    
     addaboard.validate({
         invalidHandler: function(form, validator){
             errorlink.click();
+            
             var html='';
             for (var key in validator.submitted){
                 var label = $('label[for^="' + key +'"]').not('[generated]');
@@ -28,36 +31,28 @@ $('#form').on('pageinit', function(){
             };
             $("#errors ul").html(html);
         },
-        submitHandler: function() {
+        submitHandler: function(key) {
+            savedlink.click();
             var data = addaboard.serializeArray();
-            parseForm(data);
+            var html='';
+            var id;
+            if(!key) {
+                id = Math.floor(Math.random()*100000000);
+                //if same set it as the old.
+            }else{
+                id = key;
+            }
+            //parseForm(data);
+            localStorage.setItem(id, JSON.stringify(data));
+            //alert("Board is saved");
+            html += '<li>' + "Good Job! Now go out and skate." + '</li>';
+            $("#saved ul").html(html);
         }
     });
 	
 	//any other code needed for addItem page goes here
     //getElementByID function
-    function GetID(x){
-        var element = document.getElementById(x);
-        return element;   
-    }
 
-    var openBlankWindow = function() {
-        window.open("blank.html", "_self");
-    };
-    
-    //Getting the form variables //
-    var accessCategory = GetID("Category");
-    var boardWidth = GetID("width");
-    var bearingType = GetID("bearing");
-    var truckBrand = GetID("truckBrand");
-    var accessChecked = GetID("accessories");
-    var manuDate = GetID("date");
-    var notes = GetID("notes");
-    var createLi = GetID("li");
-    var createUl = GetID("ul");
-    var accessories;
-    var bearingValue;
-    var accessoryValue;
      
     
     //Create more categories
@@ -70,57 +65,6 @@ $('#form').on('pageinit', function(){
     }*/
     
     
-    // Get the value of the check boxes
-    var getAccessories = function(){
-        accessoryValue =[];
-        for (i=0, j=accessChecked.length; i<j; i++){
-            if(accessChecked[i].checked){
-                accessoryValue.push(accessChecked[i].value);
-                
-            }
-        }
-        
-    };
-    
-    //get value of Bearing radio buttons
-    var getBearingRating = function(){
-        for (i=0, j=bearingType.length; i<j; i++){
-            if(bearingType[i].checked){
-                bearingValue = bearingType[i].value;
-            }
-        }
-        
-    };
-    
-    
-    //Get the data into storage!
-    var saveData = function (key){
-        //if no key create a new one.
-        var id;
-        if(!key) {
-            id = Math.floor(Math.random()*100000000);
-            //if same set it as the old.
-        }else{
-            id = key;
-        }
-        
-        //Get form fields and put in object
-        //Object will contain value and input
-        //getAccessories();
-        //getBearingRating();
-        var formItem = {};
-            formItem.board = ["Board: ", GetID("brand").value];
-            formItem.category = ["Category: ", GetID("Category").value];
-            formItem.width = ["Width: ", GetID("width").value];
-            formItem.bearing = ["Bearings: ", bearingValue];
-            formItem.trucks = ["Trucks: ", GetID("truckBrand").value];
-            formItem.accessories = ["Accessories: ", accessoryValue];
-            formItem.manudate = ["Manufacturer's Date: ", GetID("date").value];
-            formItem.notes = ["Notes: ", GetID("notes").value];
-            //save data into local storage using stringify.
-            localStorage.setItem(id, JSON.stringify(formItem));
-            alert("Board is saved");
-    };
     
     
     //togglecontrols
@@ -386,8 +330,8 @@ $('#form').on('pageinit', function(){
     //displayBoards.addEventListener("click", getData);
     //var clearButton = GetID("clearButton");
     //clearButton.addEventListener("click", clearData);
-    var saveBoard = GetID("submitbutton");
-    saveBoard.addEventListener("click", saveData);
+    //var saveBoard = GetID("submitbutton");
+    ///saveBoard.addEventListener("click", saveData);
     //var addBoard = GetID("addNew");
     //addBoard.addEventListener("click", openAddWindow);
     

@@ -99,6 +99,10 @@ ul #errors{
 	display:none;
 }
 
+#savedlink{
+	display:none;
+}
+
 #errors li{
     font-family: Arial;
     font-size: 12px;

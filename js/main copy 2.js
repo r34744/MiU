@@ -1,28 +1,40 @@
 /*
  Greg Koenig
- Visual Frameworks 1302
+ Mobile Interface 1303
 */
 
-/*
-    .getElementById("string"); >>> gets the HTML line of the particular ID
-    .getElementsByTagName(); >>>> returns an Array of the elements tagged
-    .value >>>> returns the value of an ID from the HTML 
-    .addEventListener("event", function);
-    .setAttribute ("attribute name", "attribute value");
-    .removeAttribute ();
-    .innerHTML >>> returns text from the HTML tag
-                    var myh2 = document.getElementById("ID of H2 tag");
-                    console.log(myh2.innerHTML)
-                    
-    .addEventListener("click or blur or focus", whatToDo) >>> change, mouseover, mouseout
-    .createElement("string");  >>>>> example    document.createElement("li");
-    .appendChild("string");
-    
-*/
+$('#home').on('pageinit', function(){
+	//code needed for home page goes here
+});	
+		
+$('#form').on('pageinit', function(){
 
-//Wait until the DOM is ready
-window.addEventListener("DOMContentLoaded", function() {
+    var parseForm = function(data){
+    console.log(data);
+    };
 
+	var addaboard = $('#addaboard'),
+        errorlink = $('#errorlink')
+    ;
+    addaboard.validate({
+        invalidHandler: function(form, validator){
+            errorlink.click();
+            var html='';
+            for (var key in validator.submitted){
+                var label = $('label[for^="' + key +'"]').not('[generated]');
+                var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+                var fieldName = legend.length ? legend.text() : label.text();
+                html += '<li>' + fieldName + '</li>';
+            };
+            $("#errors ul").html(html);
+        },
+        submitHandler: function() {
+            var data = addaboard.serializeArray();
+            parseForm(data);
+        }
+    });
+	
+	//any other code needed for addItem page goes here
     //getElementByID function
     function GetID(x){
         var element = document.getElementById(x);
@@ -34,11 +46,11 @@ window.addEventListener("DOMContentLoaded", function() {
     };
     
     //Getting the form variables //
-    var accessCategory = GetID("addaBoard").Category;
+    var accessCategory = GetID("Category");
     var boardWidth = GetID("width");
-    var bearingType = GetID("addaBoard").bearing;
+    var bearingType = GetID("bearing");
     var truckBrand = GetID("truckBrand");
-    var accessChecked = GetID("addaBoard").accessories;
+    var accessChecked = GetID("accessories");
     var manuDate = GetID("date");
     var notes = GetID("notes");
     var createLi = GetID("li");
@@ -47,17 +59,15 @@ window.addEventListener("DOMContentLoaded", function() {
     var bearingValue;
     var accessoryValue;
      
-    var deleteCategoryItems = accessCategory;
-    deleteCategoryItems.innerHTML="";
     
     //Create more categories
-    var categoryAdds = ["Vintage", "Novelty", "Art", "Rider", "Broken"];
+    /*var categoryAdds = ["Vintage", "Novelty", "Art", "Rider", "Broken"];
     for (i=0, j=categoryAdds.length; i<j; i++) {
         var createOption = document.createElement("option");
         createOption.innerHTML = categoryAdds[i];
         createOption.value = categoryAdds[i];
         accessCategory.appendChild(createOption);    
-    }
+    }*/
     
     
     // Get the value of the check boxes
@@ -96,8 +106,8 @@ window.addEventListener("DOMContentLoaded", function() {
         
         //Get form fields and put in object
         //Object will contain value and input
-        getAccessories();
-        getBearingRating();
+        //getAccessories();
+        //getBearingRating();
         var formItem = {};
             formItem.board = ["Board: ", GetID("brand").value];
             formItem.category = ["Category: ", GetID("Category").value];
@@ -372,21 +382,21 @@ window.addEventListener("DOMContentLoaded", function() {
     
     
     //form button actions
-    var displayBoards = GetID("displayBoards");
-    displayBoards.addEventListener("click", getData);
-    var clearButton = GetID("clearButton");
-    clearButton.addEventListener("click", clearData);
+    //var displayBoards = GetID("displayBoards");
+    //displayBoards.addEventListener("click", getData);
+    //var clearButton = GetID("clearButton");
+    //clearButton.addEventListener("click", clearData);
     var saveBoard = GetID("submitbutton");
-    saveBoard.addEventListener("click", validateForm);
-    var addBoard = GetID("addNew");
-    addBoard.addEventListener("click", openAddWindow);
+    saveBoard.addEventListener("click", saveData);
+    //var addBoard = GetID("addNew");
+    //addBoard.addEventListener("click", openAddWindow);
     
     //Search
-    var searchButton = GetID("searchButton");
-    searchButton.addEventListener("click", boardSearch);
+    //var searchButton = GetID("searchButton");
+    //searchButton.addEventListener("click", boardSearch);
     
     
-    function boardSearch (){
+    /*function boardSearch (){
         var boardCategories = GetID("Category").value;
         var brandName = GetID("search").value;
         
@@ -437,6 +447,9 @@ window.addEventListener("DOMContentLoaded", function() {
         }
         
         
-    }
+    }*/
 
-} );
+
+	
+});
+
