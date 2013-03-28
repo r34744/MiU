@@ -6,7 +6,7 @@
 
 h1{
     font-family: Arial;
-    font-size: 40px;
+    font-size: 20px;
     line-height: 25px;
     text-align: center;
     color: white;
@@ -16,7 +16,7 @@ h1{
 
 p{
     font-family: Arial;
-    font-size: 10px;
+    font-size: 15px;
 	line-height: 15px;
 	text-align: center;
     
@@ -35,8 +35,13 @@ li{
 
 
 form{
-    background-color: rgb(241,231,210);
-    margin: 5px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( #fff /*{c-bup-background-start}*/), to( #f1f1f1 /*{c-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/);
+	margin: 5px;
     padding: 10px;
     border-radius:15px;
 }
